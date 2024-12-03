@@ -1,5 +1,3 @@
-# sms_ai_telnyx
-
 # Documentación del Chatbot con Ollama y Flask
 Este proyecto implementa un chatbot inteligente utilizando Flask y Ollama, con integración de Telnyx para mensajería SMS. Las principales características incluyen:
 
