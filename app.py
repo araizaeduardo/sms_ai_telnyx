@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, render_template
 import telnyx
 import random
 import sqlite3
@@ -125,6 +125,16 @@ def sms():
     )
     
     return "OK", 200
+
+@app.route("/")
+def dashboard():
+    conn = sqlite3.connect(DB_NAME)
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM clientes")
+    clientes = cursor.fetchall()
+    conn.close()
+    
+    return render_template("dashboard.html", clientes=clientes)
 
 if __name__ == "__main__":
     init_db()
